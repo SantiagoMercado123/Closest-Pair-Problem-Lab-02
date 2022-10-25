@@ -1,0 +1,25 @@
+\section{Definición del Problema}
+Implementar el algoritmo que encuentra el par de puntos más cercano de un set de coordenadas de forma recursiva dividiendo el set de coordenadas a subsets más pequeños y aplicando fuerza bruta a estos subsets. Se hace de forma que al final devuelva la cantidad de comparaciones y el tiempo transcurrido necesario para lograrlo para poder analizar la complejidad del algoritmo. Posteriormente es necesario graficar los resultados del tiempo y comparaciones en gráficas para poder observar y analizar el comportamiento de nuestro algoritmo con respecto al tiempo. Los resultados esperados son que el algoritmo tenga una complejidad de O(n) al dividir por mitades. \\
+
+Algoritmo~\ref{algo:alg} ilustra el algoritmo de fuerza bruta para hallar el par más cercano usado para resolver el problema.
+
+% displays the algorithm for computing the factorial recursively:
+\begin{algorithm}[H]	% uses the float package to control placement
+	\caption{Fuerza Bruta}	% a brief description or the function name
+	\begin{algorithmic}
+    \STATE $dmin \gets INF$
+    \FOR{$i = [1, N - 1]$}
+        \FOR{\texttt{j = [i+1, N - 1]}}
+            \STATE $d \gets distance(coords, i, j)$
+            \IF{$d < d_min$}
+                \STATE $first \gets i$
+                \STATE $second \gets j$
+                \STATE $dmin \gets d$
+            \ENDIF
+        \ENDFOR
+    \ENDFOR
+    \STATE $return(first, second, dmin)$
+	\end{algorithmic}
+	\label{algo:alg}	% defines a label to refer to this
+\end{algorithm}
+
