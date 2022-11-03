@@ -66,7 +66,14 @@ La complejidad del método de Fuerza Bruta es claramente de $O(n^2)$ por lo que 
 \begin{align*}
     \sum_{i=0}^{N/2-1}{1} + \sum_{i=N/2}^{N}{1} =  \sum_{i=0}^{N}{1} = N+1
 \end{align*}
-Esto significa que la complejidad de nuestro programa no está dictada por la complejidad del algoritmo de fuerza bruta O(1), sino por el algoritmo para hallar la lista de candidatos la cual tiene una complejidad de O(n). Por esto, nuestro programa termina con una complejidad de O(n).
-
+Sin embargo, sucede lo mismo que con el algoritmo de fuerza bruta. Al ser los subsets de tamaño máximo 3, esto significa que siempre va a buscar en una lista de entre 2 y 6 puntos. Es decir que a lo mucho haría 7 comparaciones. Esto significa que la lista de candidatos tendrá también a lo mucho 6 puntos, por lo que reolverla también requerirá una cantidad constante de comparaciones. En resumen, hallar y resolver la lista de candidatos también tendría una complejidad constante O(1). Por tanto, la ecuación de complejidad de nuestro código sería 
+\begin{align*}
+    T(N) = 2T(N/2) + c
+\end{align*}
+Donde c representa el número de comparaciones que se realizan para hallar y resolver la lista de candidatos. Luego, se resuelve esta ecuación con la ecuación maestra y se
+obtiene que a=2, b=2 y d=0. Luego la ecuación maestra dicta que $a > b^d = 2 > 1$ por lo que la complejidad del algoritmo sería 
+\begin{align*}
+    T(N) = O(N^{log_b a}) = O(N^{log_2 2}) = O(N^1) = O(N)
+\end{align*}
 
 
